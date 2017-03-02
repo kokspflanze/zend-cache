@@ -9,6 +9,7 @@
 
 namespace ZendTest\Cache\Storage\Adapter;
 
+use PHPUnit\Framework\TestCase;
 use Zend\Cache\Storage\AdapterPluginManager;
 use Zend\Cache\Storage\AvailableSpaceCapableInterface;
 use Zend\Cache\Storage\IterableInterface;
@@ -31,7 +32,7 @@ use Zend\Stdlib\ErrorHandler;
 /**
  * @group      Zend_Cache
  */
-abstract class CommonAdapterTest extends \PHPUnit_Framework_TestCase
+abstract class CommonAdapterTest extends TestCase
 {
     // @codingStandardsIgnoreStart
     /**
@@ -1076,7 +1077,7 @@ abstract class CommonAdapterTest extends \PHPUnit_Framework_TestCase
             $this->markTestSkipped("Storage doesn't implement ClearByPrefixInterface");
         }
 
-        $this->setExpectedException('Zend\Cache\Exception\InvalidArgumentException');
+        $this->expectException('Zend\Cache\Exception\InvalidArgumentException');
         $this->_storage->clearByPrefix('');
     }
 
@@ -1120,7 +1121,7 @@ abstract class CommonAdapterTest extends \PHPUnit_Framework_TestCase
             $this->markTestSkipped("Storage doesn't implement ClearByNamespaceInterface");
         }
 
-        $this->setExpectedException('Zend\Cache\Exception\InvalidArgumentException');
+        $this->expectException('Zend\Cache\Exception\InvalidArgumentException');
         $this->_storage->clearByNamespace('');
     }
 
